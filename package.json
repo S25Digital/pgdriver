@@ -1,0 +1,20 @@
+{
+  "name": "pgdriver",
+  "version": "1.0.0",
+  "description": "a driver to connect and use PostgreSQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simranjeet2589/pgdriver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simranjeet2589/pgdriver/issues"
+  },
+  "homepage": "https://github.com/simranjeet2589/pgdriver#readme"
+}
