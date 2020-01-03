@@ -6,3 +6,4 @@ a driver to connect and use PostgreSQL
 - basic functions to return data in json object like findone and find
 - Query creator and processor
 - insertOne and insertMany functions
+- update and upsert
