@@ -7,3 +7,4 @@ a driver to connect and use PostgreSQL
 - Query creator and processor
 - insertOne and insertMany functions
 - update and upsert
+- connection info
