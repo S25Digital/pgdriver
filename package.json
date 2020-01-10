@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simranjeetsingh001/pgdriver.git"
+    "url": "git+https://github.com/singhs020/pgdriver.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/simranjeetsingh001/pgdriver/issues"
+    "url": "https://github.com/singhs020/pgdriver/issues"
   },
-  "homepage": "https://github.com/simranjeetsingh001/pgdriver#readme"
+  "homepage": "https://github.com/singhs020/pgdriver#readme"
 }
