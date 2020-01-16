@@ -1,4 +1,4 @@
-# pgdriver
+# pgdriver[WIP]
 a driver to connect and use PostgreSQL
 
 # TODO
