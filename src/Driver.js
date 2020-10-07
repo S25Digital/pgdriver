@@ -1,9 +1,8 @@
 /**
  * Database Driver
  * Wraps the native pg driver and only exposes the friendly functions
- * do not use it directly. exported for testing purposes only
  */
-export class DbDriver {
+class DbDriver {
 
   constructor(pool, logger) {
     this._pool = pool;
