@@ -2,6 +2,8 @@ const { Pool } = require("pg");
 const getLogger = require("pino");
 const {Pool} = require("pg");
 
+const DbDriver = require("./Driver");
+
 /**
  * Extracts the config required to create a database connection
  * @param {*} config 

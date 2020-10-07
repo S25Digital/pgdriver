@@ -1,3 +1,5 @@
+const Table = require("./Table");
+
 /**
  * Database Driver
  * Wraps the native pg driver and only exposes the friendly functions
@@ -64,4 +66,10 @@ class DbDriver {
 
     return wrappedClient;
   }
+
+  table(name) {
+    return new Table(name);
+  }
 }
+
+module.exports = DbDriver;
