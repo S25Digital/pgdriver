@@ -6,15 +6,16 @@ const Table = require("./Table");
  */
 class DbDriver {
 
-  constructor(pool, logger) {
-    this._pool = pool;
+  constructor({rwPool, roPool, logger}) {
+    this._rwPool = rwPool;
     this._logger = logger;
+    this._roPool = roPool;
   }
 
   /**
    * wrapper function to execute queries.
-   * @param qry 
-   * @param values 
+   * @param qry
+   * @param values
    */
   async query(qry, values = []) {
     try {
@@ -22,7 +23,7 @@ class DbDriver {
         "text": qry,
         "values": values
       };
-      const {rows} = await this._pool.query(params);
+      const {rows} = await this._rwPool.query(params);
 
       return rows;
     } catch(err) {
@@ -40,7 +41,7 @@ class DbDriver {
    * Make sure you are handling commit and rollback in proper way
    */
   async startTransaction() {
-    const client = await this._pool.connect();
+    const client = await this._rwPool.connect();
 
     await client.query("begin");
 
