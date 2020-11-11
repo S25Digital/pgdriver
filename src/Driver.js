@@ -33,7 +33,7 @@ class DbDriver {
         "message": "There was an error in db operation",
         "error": err
       });
-      throw err;
+      return err;
     }
   }
 

@@ -27,7 +27,8 @@ function getDbConfigs(config) {
     "statement_timeout": config.statementTimeout || 5000,
     "query_timeout": config.queryTimeout || 10000,
     "connectionTimeoutMillis": config.connectionTimeoutMillis || 5000,
-    "idle_in_transaction_session_timeout": config.idleInTransactionSessionTimeout || 12000
+    "idle_in_transaction_session_timeout": config.idleInTransactionSessionTimeout || 10000,
+    "idleTimeoutMillis": config.idleTimeoutMillis || 10000
   };
 
   const roConfig = config.roHost? Object.assign({}, rwConfig, {"host": config.roHost}) : null;

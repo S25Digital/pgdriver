@@ -7,7 +7,7 @@ const {getDbConfigs, validateConfig} = require("./configParser");
 function getConnectedPool(config) {
   const {rwConfig, roConfig} = getDbConfigs(config);
   const rwPool = new Pool(rwConfig);
-  const roPool = rwConfig === null ? rwPool : new Pool(roConfig);
+  const roPool = roConfig === null ? rwPool : new Pool(roConfig);
 
   return {rwPool, roPool};
 }
