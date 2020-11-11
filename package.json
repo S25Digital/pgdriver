@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/singhs020/pgdriver#readme",
   "dependencies": {
+    "joi": "^17.3.0",
     "pg": "^8.4.0",
     "pino": "^6.7.0"
   }
