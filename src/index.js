@@ -12,19 +12,17 @@ function getConnectedPool(config) {
   let rwPool = cachedConnectionMap.get(`${rwConfig.host}-${rwConfig.database}`) || null;
   let roPool = roConfig === null ? rwPool : (cachedConnectionMap.get(`${roConfig.host}-${roConfig.database}`) || null);
 
-  // return cached instance if any
-  if(rwPool !== null && roPool !== null) {
-    return {rwPool, roPool};
+  // No cached instance of pool, create a pool and cache it
+  if(rwPool === null) {
+    rwPool = new Pool(rwConfig);
+    cachedConnectionMap.set(`${rwConfig.host}-${rwConfig.database}`, rwPool);
   }
 
-  // No cached instance of pool, create a pool and cache it
-  rwPool = new Pool(rwConfig);
-  roPool = roConfig === null ? rwPool : new Pool(roConfig);
-
-  cachedConnectionMap.set(`${rwConfig.host}-${rwConfig.database}`, rwPool);
-
-  if(roConfig !== null) {
-    cachedConnectionMap.set(`${roConfig.host}-${roConfig.database}`, roPool);
+  if(roPool === null) {
+    roPool = roConfig === null ? rwPool : new Pool(roConfig);
+    if(roConfig !== null) {
+      cachedConnectionMap.set(`${roConfig.host}-${roConfig.database}`, roPool);
+    }
   }
 
   return {rwPool, roPool};

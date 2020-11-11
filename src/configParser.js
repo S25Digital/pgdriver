@@ -2,6 +2,7 @@ const Joi = require("joi");
 
 const configSchema = Joi.object().keys({
   "host": Joi.string().required(),
+  "roHost": Joi.string(),
   "database": Joi.string().required(),
   "port": Joi.number().integer().greater(0).required(),
   "password": Joi.string().required(),
@@ -9,7 +10,8 @@ const configSchema = Joi.object().keys({
   "statementTimeout": Joi.number().integer(),
   "queryTimeout": Joi.number().integer(),
   "connectionTimeoutMillis": Joi.number().integer(),
-  "idleInTransactionSessionTimeout": Joi.number().integer()
+  "idleInTransactionSessionTimeout": Joi.number().integer(),
+  "idleTimeoutMillis": Joi.number().integer()
 });
 
 /**
