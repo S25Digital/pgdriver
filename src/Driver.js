@@ -14,6 +14,7 @@ class DbDriver {
 
   /**
    * wrapper function to execute queries.
+   * If the qry starts with the select keyword, the query will be routed to read only pool
    * @param qry
    * @param values
    */
@@ -23,7 +24,8 @@ class DbDriver {
         "text": qry,
         "values": values
       };
-      const {rows} = await this._rwPool.query(params);
+      const isReadOnly = qry.toLowerCase().startsWith("select");
+      const {rows} = isReadOnly === true ? await this._roPool.query(params) : await this._rwPool.query(params);
 
       return rows;
     } catch(err) {
@@ -39,6 +41,7 @@ class DbDriver {
    * Returns a wrappedClient for running transactions on database.
    * Once a transaction is started, any error will bring the transaction in the hang state
    * Make sure you are handling commit and rollback in proper way
+   * Transaction will always run on primary i.e. read/write Pool
    */
   async startTransaction() {
     const client = await this._rwPool.connect();
